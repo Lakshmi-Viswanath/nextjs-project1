@@ -1,40 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Scaffolding 
+----------
 
-## Getting Started
+node_modules :  This directory contains all the dependencies and packages installed via npm
 
-First, run the development server:
+package.json :  the project dependency distrubution file
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+public  - Where we can keep the static assets served via too level
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+pages   - Most important part of next js app
+        - Each file represents a route in the application since next js uses file based routing 
+        - index.js represents the root route  ( '/')  Entry point of Application
+        - _app.js Custom App component used to initialize the pages 
+          enables the navigation between the pages. if you want to inject any global styles and layouts we can do this here
+        _document.js  This custom document component is used to      augmemnt the application HTML and body tags, seeting up the meta tags , fonts linking , global scripts
+        api/ - special sub directory used to create API routes 
+        you can create endpoint by placing a JS file 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+        Why _  in next.js project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+        The underscore _prefix int the files like _app.js _document.js
+        _error.js etc in next.js serves as a convention to indicate that these files have a special purposes within framework
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+        The underscore (_) indicates that these files are tied to the internal workings of the Next.js framework.you can custimize them
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+        _ files are not routable but influence the behaviour of the route
 
-## Learn More
+        its avoids route conflicts
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+styles/ 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+        The directory is used for blobal styles and css modules 
 
-## Deploy on Vercel
+        global.css  - contians the global css rules usually imported in import "@/styles/globals.css";
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+        Home.module.css - css scoping based on components in this case Home component
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+.gitignore - This file specifies which files and directories should be ignored by Git. The default .gitignore file includes node_modules/, .next/
+
+
+package.json used for scripts and dependencies
+
+next.config.js -- File is used to customize the configuration of next js app
+
+jsconfig.json --jsconfig.json file is used to configure JavaScript settings for your project. absolute imports, path aliases, and IntelliSense for your code editor (majorly for developer experience ) cleaner imports 
